@@ -1,0 +1,126 @@
+drop packets with destination port 0 (TCP)
+-p 0 -S
+0
+
+drop packets with source port 0 (TCP)
+-s 0 -p 80 -S
+0
+
+
+drop packets with destination port 0 (UDP)
+-p 0 --udp
+0
+
+drop packets with source port 0 (UDP)
+-s 0 -p 80 --udp
+0
+
+
+drop external packets with internal address
+-p 22 -a 192.168.1.10 -S
+0
+
+
+drop packet from high port 1025 (TCP)
+-p 1025 -S
+0
+
+
+drop packet from high port 65535 (TCP) 
+-p 65535
+0
+
+
+drop SYN/FIN (HTTP)
+-p 80 -S -F
+0
+
+drop SYN/FIN (SSH)
+-p 22 -S -F
+0
+
+
+drop telnet
+-p 23 -S
+0
+
+
+drop connections to ports 32768-32775 - testing port 32768
+-p 32768 -S
+0
+
+
+drop connections to ports 32768-32775 - testing port 32775
+-p 32775 -S
+0
+
+
+drop connections to ports 137-139 - testing port 137
+-p 137 -S
+0
+
+
+drop connections to ports 137-139 - testing port 139
+-p 139 -S
+0
+
+
+drop tcp connection on port 111
+-p 111 -S
+0
+
+
+drop tcp connection on port 515
+-p 515 -S
+0
+
+
+connect to web server on port 80
+-p 80 -S
+18
+
+
+connect to ssh on port 22
+-p 22 -S
+18
+
+
+connect to FTP on port 20 (data)
+-p 20 -S
+20
+
+
+connect to FTP on port 21 (control)
+-p 21 -S
+20
+
+
+connect to random port 53 (DNS) (UDP)
+-p 53 --udp
+0
+
+
+connect to random port 53 (DNS) (TCP)
+-p 53 -S
+0
+
+
+connect to port 80 (HTTP) (NULL scan)
+-p 80
+0
+
+
+connect to port 80 (HTTP) (x-mas tree scan)
+-p 80 --xmas
+0
+
+
+connect to port 80 (HTTP) as a service (source port 80)
+-p 80 -s 80 -S
+0
+
+fragmented packet
+-p 80 --data 100000 --udp
+0
+
+

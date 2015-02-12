@@ -1,0 +1,6 @@
+- forward ephemeral port and prove it still doesn't go through
+- forward telnet
+- forward 111, 515
+- note down if TOS for FTP and SSH is changed
+- test pinging
+- forward 10000 byte packet in fragments

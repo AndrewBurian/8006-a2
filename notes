@@ -1,0 +1,36 @@
+
+FORWARD
+___________________________________
+DROP from ext with int netmask
+DROP TCP SYN from SRV to MAX
+DROP SYN/FIN
+DROP telnet
+DROP ext to 32758-32775 TCP/UDP
+DROP ext to 137-139 TCP/UDP
+DROP ext to 111 TCP
+DROP ext to 515 TCP
+MANGLE ssh min-delay
+MANGLE ftp high-throughput
+
+TCP allowed tcp ports
+TCP tcp Fragments
+UDP allowed udp ports
+UDP udp fragments
+ICMP all
+DROP REST
+
+TCP
+____________________________________
+ACCEPT new,established
+DROP REST
+
+
+UDP
+____________________________________
+ACCEPT related
+DROP REST
+
+ICMP
+____________________________________
+ACCEPT types
+DROP REST
